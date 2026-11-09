@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            Transmetro · Línea 7
+        </title>
+        <link rel="stylesheet" href="estilos.css">
+        <script src="config.js" defer></script>
+        <script src="paradas.js" defer></script>
+        <script src="app.js" defer>
+        </script>
+    </head>
+    <body>
+        <header>
+            <a class="marca" href="#inicio">
+                <img class="logo-home" src="imagenes/logo.png" alt="Inicio">
+                <span class="marca-texto">
+                    TRANSMETRO
+                    <small>
+                        LÍNEA 7 · GUATEMALA
+                    </small>
+                </span>
+            </a>
+            <nav aria-label="Navegación principal">
+                <a href="#inicio">
+                    Inicio
+                </a>
+                <a href="#tarjetas">
+                    Mi tarjeta
+                </a>
+                <a href="#rutas">
+                    Recorrido
+                </a>
+                <a href="#historial">
+                    Historial
+                </a>
+                <a href="#administracion">
+                    Administración
+                </a>
+            </nav>
+        </header>
+        <main>
+            <section id="inicio" class="hero">
+                <div>
+                    <p class="eyebrow">
+                        ADMINISTRACIÓN DE TARJETAS
+                    </p>
+                    <h1>
+                        Transmetro
+                        <br>
+                        Línea 7
+                    </h1>
+                    <p>
+                        Consulta tu tarjeta, carga saldo y registra tus viajes.
+                    </p>
+                    <a class="boton" href="#tarjetas">
+                        Gestionar tarjeta
+                    </a>
+                    <p class="nota">
+                        Proyecto académico en homenaje a la Línea 7. No es un sitio oficial.
+                    </p>
+                </div>
+                <div class="boleto">
+                    <div class="linea">
+                        LÍNEA 7
+                        <span>
+                            TRANSMETRO
+                        </span>
+                    </div>
+                    <h2>
+                        Información del viaje
+                    </h2>
+                    <p>
+                        18 paradas · USAC Periférico a Santuario de Guadalupe
+                    </p>
+                    <div class="tarifa">
+                        <strong>
+                            Q5.00
+                        </strong>
+                        <span>
+                            por abordaje simulado
+                            <br>
+                            tarifa del proyecto académico
+                        </span>
+                    </div>
+                </div>
+            </section>
+            <div id="aviso" role="status" aria-live="polite"></div>
+            <section id="tarjetas">
+                <div class="titulo">
+                    <div>
+                        <p class="eyebrow">
+                            01 / TARJETAS
+                        </p>
+                        <h2>
+                            Gestión de tarjetas
+                        </h2>
+                    </div>
+                    <button id="comprar">
+                        Comprar tarjeta
+                    </button>
+                </div>
+                <div class="grid">
+                    <article class="panel">
+                        <h3>
+                            Consultar tarjeta
+                        </h3>
+                        <form id="consulta">
+                            <label for="codigo">
+                                Número de tarjeta
+                            </label>
+                            <input id="codigo" placeholder="Código completo de la tarjeta" required maxlength="40">
+                            <button>
+                                Consultar
+                            </button>
+                        </form>
+                        <p class="nota">
+                            Conserva el número para consultar tu tarjeta desde cualquier dispositivo.
+                        </p>
+                        <div class="tarjeta">
+                            <span>
+                                TARJETA · LÍNEA 7
+                            </span>
+                            <h3 id="numero">
+                                Sin tarjeta seleccionada
+                            </h3>
+                            <p id="titular">
+                                Titular: sin registrar
+                            </p>
+                            <p id="documento">
+                                Documento: sin registrar
+                            </p>
+                            <p id="correo">
+                                Correo: sin registrar
+                            </p>
+                            <strong id="saldo">
+                                Q0.00
+                            </strong>
+                        </div>
+                    </article>
+                    <article class="panel">
+                        <h3>
+                            Registrar datos personales
+                        </h3>
+                        <form id="registro">
+                            <label for="nombre">
+                                Nombre completo
+                            </label>
+                            <input id="nombre" required minlength="3" maxlength="80" autocomplete="name">
+                            <label for="identificacion">
+                                Documento / identificación
+                            </label>
+                            <input id="identificacion" required minlength="4" maxlength="25">
+                            <label for="email">
+                                Correo electrónico
+                            </label>
+                            <input id="email" type="email" required maxlength="100" autocomplete="email">
+                            <button>
+                                Guardar datos
+                            </button>
+                        </form>
+                        <p class="nota">
+                            Usa datos ficticios para las pruebas. La estación comparte los datos entre dispositivos.
+                        </p>
+                    </article>
+                    <article class="panel">
+                        <h3>
+                            Cargar saldo
+                        </h3>
+                        <form id="recarga">
+                            <label for="monto">
+                                Monto en quetzales
+                            </label>
+                            <input id="monto" type="number" min="1" max="1000" step="0.01" required placeholder="25.00">
+                            <button>
+                                Recargar tarjeta
+                            </button>
+                        </form>
+                        <hr>
+                        <h3>
+                            Ingresar al bus
+                        </h3>
+                        <p>
+                            Se descuentan
+                            <b>
+                                Q5.00
+                            </b>
+                            al confirmar cada abordaje. Debes registrar tu tarjeta y tener saldo suficiente.
+                        </p>
+                        <form id="abordaje">
+                            <label for="origen">
+                                Parada de ingreso
+                            </label>
+                            <select id="origen">
+                            </select>
+                            <button>
+                                Confirmar abordaje · Q5
+                            </button>
+                        </form>
+                    </article>
+                </div>
+            </section>
+            <section id="rutas">
+                <p class="eyebrow">
+                    02 / RECORRIDO
+                </p>
+                <h2>
+                    Recorrido de la Línea 7
+                </h2>
+                <p>
+                    18 paradas disponibles. Puedes abordar en cualquiera y finalizar en otra distinta a tu origen.
+                </p>
+                <figure class="mapa">
+                    <a href="imagenes/recorrido-linea-7.png" target="_blank" rel="noopener" aria-label="Abrir mapa de la Línea 7 en tamaño completo">
+                        <img src="imagenes/recorrido-linea-7.png" alt="Mapa de estaciones de la Línea 7 del Transmetro, entre USAC Periférico y La Merced">
+                    </a>
+                    <figcaption>
+                        Mapa de referencia · Haz clic para verlo en tamaño completo.
+                    </figcaption>
+                </figure>
+                <ol id="circuito" class="circuito">
+                </ol>
+                <div class="panel">
+                    <h3>
+                        Registrar llegada
+                    </h3>
+                    <p id="viajeActual">
+                        No hay un viaje activo.
+                    </p>
+                    <form id="parada" class="horizontal">
+                        <div>
+                            <label for="destino">
+                                Parada de destino
+                            </label>
+                            <select id="destino">
+                            </select>
+                        </div>
+                        <button>
+                            Finalizar viaje
+                        </button>
+                    </form>
+                    <p class="nota">
+                        Selecciona tu destino y finaliza el viaje. No se cobra nuevamente al bajar.
+                    </p>
+                </div>
+            </section>
+            <section id="historial">
+                <div class="titulo">
+                    <div>
+                        <p class="eyebrow">
+                            03 / ACTIVIDAD
+                        </p>
+                        <h2>
+                            Historial de tu tarjeta
+                        </h2>
+                    </div>
+                    <button id="exportar" class="secundario">
+                        Descargar historial CSV
+                    </button>
+                </div>
+                <p>
+                    Incluye compra, registro, recargas, abordajes, paradas y cierre de viajes.
+                </p>
+                <div class="tabla">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Fecha y hora
+                                </th>
+                                <th>
+                                    Movimiento
+                                </th>
+                                <th>
+                                    Detalle / parada
+                                </th>
+                                <th>
+                                    Importe
+                                </th>
+                                <th>
+                                    Saldo
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="movimientos">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="administracion">
+                <p class="eyebrow">
+                    04 / ADMINISTRACIÓN
+                </p>
+                <h2>
+                    Control de la estación
+                </h2>
+                <div id="acceso" class="panel">
+                    <form id="login" class="horizontal">
+                        <div>
+                            <label for="usuario">
+                                Usuario
+                            </label>
+                            <input id="usuario" autocomplete="username" required>
+                        </div>
+                        <div>
+                            <label for="clave">
+                                Contraseña
+                            </label>
+                            <input id="clave" type="password" autocomplete="current-password" required>
+                        </div>
+                        <button>
+                            Iniciar sesión
+                        </button>
+                    </form>
+                    <p class="nota">
+                        Credenciales las mismas que en las instrucciones
+                    </p>
+                </div>
+                <div id="panelAdmin" hidden>
+                    <div class="titulo">
+                        <p id="resumen">
+                        </p>
+                        <button id="salir" class="secundario">
+                            Cerrar sesión
+                        </button>
+                    </div>
+                    <article class="panel">
+                        <h3>Respaldo de todas las tarjetas</h3>
+                        <button id="actualizarAdmin" class="secundario">Actualizar lista</button>
+                        <button id="guardarCopia">Exportar todo a JSON</button>
+                        <form id="restaurar">
+                            <label for="archivo">Importar respaldo JSON</label>
+                            <input id="archivo" type="file" accept=".json,application/json" required>
+                            <button>Revisar e importar</button>
+                        </form>
+                        <p id="estadoAdmin" role="status"></p>
+                    </article>
+                    <div class="tabla">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Tarjeta
+                                    </th>
+                                    <th>
+                                        Titular
+                                    </th>
+                                    <th>
+                                        Saldo
+                                    </th>
+                                    <th>
+                                        Viajes
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="listaAdmin">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <b>
+                TRANSMETRO · LÍNEA 7
+            </b>
+            <p>
+                Proyecto académico en homenaje · Sitio no oficial
+            </p>
+            <small>
+                Las tarjetas se guardan en la base de datos compartida. Pagos y compras simulados.
+            </small>
+        </footer>
+        <dialog id="easterEgg" aria-labelledby="tituloEasterEgg">
+            <h2 id="tituloEasterEgg">Golden Apple</h2>
+            <img id="gifEasterEgg" data-src="imagenes/isaacSpecialist.gif" alt="Isaac bailando">
+            <form method="dialog">
+                <button autofocus>Cerrar</button>
+            </form>
+        </dialog>
+    </body>
+</html>
