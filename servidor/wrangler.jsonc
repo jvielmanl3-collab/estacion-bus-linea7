@@ -1,0 +1,10 @@
+{
+    "name": "estacion-bus-linea7",
+    "main": "worker.mjs",
+    "compatibility_date": "2025-05-01",
+    "workers_dev": true,
+    "durable_objects": {
+        "bindings": [{"name": "ESTACION", "class_name": "Estacion"}]
+    },
+    "migrations": [{"tag": "v1", "new_sqlite_classes": ["Estacion"]}]
+}

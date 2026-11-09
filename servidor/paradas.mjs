@@ -1,0 +1,21 @@
+const PARADAS = [
+    'USAC Periférico',
+    'Granai',
+    'Rodolfo Robles',
+    'Cejusa',
+    'San Jorge',
+    'Roosevelt',
+    'San Juan',
+    'Ciudad de Plata II',
+    'Villa Linda',
+    '4 de Febrero',
+    'Bethania',
+    'Incienso',
+    'San Juan de Dios',
+    'Pasaje Aycinena',
+    'La Merced',
+    'Cruz Roja',
+    'Archivo General',
+    'Santuario de Guadalupe'
+];
+export { PARADAS };
